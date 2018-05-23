@@ -1,0 +1,25 @@
+## Autostart ##
+
+## Run once
+DESKTOP_ENV="OPENBOX"
+xrdb ~/.Xresources # Set Terminal settings 
+numlockx on # Turn on NumLock
+xset -dpms s off # Turn off screensaver
+feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
+~/.MyScripts/SetLayout/setlayout 0 3 3 0 # Set desktop geometry 3x3
+
+## Keep running
+bash $SCRIPTSPATH/Bash/Sys/SystemMonitor.sh & # System monitor
+
+# Audio and video
+bash $SCRIPTSPATH/Bash/ALSA/SoundAutostart.sh &
+sudo bumblebeed &> ~/.log/BumblebeeSession.log &
+
+# Other apps
+compton --config .config/compton.conf &
+sleep 1 && conky -c ~/.config/conky/ConkySystemTop &
+sleep 1 && conky -c ~/.config/conky/ConkyDevices &
+sleep 1 && conky -c ~/.config/conky/ConkyDebug &
+#sleep 1 && tint2 -c ~/.config/tint2/tint2rcTasks &
+tint2 &
+owncloud &

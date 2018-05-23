@@ -1,0 +1,132 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Sans:size=8
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_transparent yes
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_argb_visual yes
+#own_window_argb_value 100
+
+alignment br
+#gap_x 12
+#gap_y 35
+minimum_size 370 250
+
+
+default_bar_size 60 8
+
+#########################
+# - Graphics settings - #
+#########################
+draw_shades no
+
+default_color efefef
+default_shade_color 1d1d1d
+color0 ffffff
+color1 ffffff
+color2 ffffff
+
+
+#lua_load ~/.conky/conkybg.lua
+#lua_draw_hook_pre conky_draw_bg
+
+TEXT
+
+## Sys info
+${image ~/.config/conky/ConkyImages/Base.png -p 10,0 -s 359x86} ${voffset -20}
+${image ~/.config/conky/ConkyImages/Glass/Info.png -p 32,20 -s 45x45}
+${goto 92}$nodename
+${goto 92}$sysname $kernel ($machine)
+${goto 92}Uptime: $uptime
+${goto 92}Internal temperature: ${acpitemp}º
+
+## Power
+${image ~/.config/conky/ConkyImages/Base.png -p 10,73 -s 359x86} ${voffset -15}
+${image ~/.config/conky/ConkyImages/Glass/Battery.png -p 32,93 -s 45x45}
+${goto 92}${font Sans:style=Bold:size=8}${color1}${exec cat /sys/class/power_supply/BAT1/technology}${font}${color} ${exec cat /sys/class/power_supply/BAT1/type} ${alignr 15}${font Sans:style=Bold:size=8}${color1}${exec cat /sys/class/power_supply/BAT1/energy_full_design | cut -c1-5}${font}${color} mWh max
+${goto 92}Capacity: ${font Sans:style=Bold:size=8}${color1}${exec cat /sys/class/power_supply/BAT1/capacity}% ${alignr 15}${exec cat /sys/class/power_supply/BAT1/energy_full | cut -c1-5}${font}${color} mWh
+${goto 92}Status: ${color1}${exec cat /sys/class/power_supply/BAT1/status}${color}${font}
+
+## CPU
+${image ~/.config/conky/ConkyImages/Base.png -p 10,146 -s 359x86} ${voffset -15}
+${image ~/.config/conky/ConkyImages/Glass/Cpu.png -p 32,166 -s 45x45}
+${voffset 5}${goto 92}CPU0: ${font Sans:style=Bold:size=8}${color1}${cpu cpu0}%${font}${color} ${goto 170}CPU4: ${font Sans:style=Bold:size=8}${color1}${cpu cpu4}%${font}${color} ${alignr 15}Core0: ${color1}${color1}${execi 30 sensors | grep 'Core 0' | cut -c17-21}°C${color}  
+${goto 92}CPU1: ${font Sans:style=Bold:size=8}${color1}${cpu cpu1}%${font}${color} ${goto 170}CPU5: ${font Sans:style=Bold:size=8}${color1}${cpu cpu5}%${font}${color} ${alignr 15}Core1: ${color1}${execi 30 sensors | grep 'Core 1' | cut -c17-21}°C${color}${font}  
+${goto 92}CPU2: ${font Sans:style=Bold:size=8}${color1}${cpu cpu2}%${font}${color} ${goto 170}CPU6: ${font Sans:style=Bold:size=8}${color1}${cpu cpu6}%${font}${color} ${alignr 15}Core2: ${color1}${execi 30 sensors | grep 'Core 2' | cut -c17-21}°C${color}${font}  
+${goto 92}CPU3: ${font Sans:style=Bold:size=8}${color1}${cpu cpu3}%${font}${color} ${goto 170}CPU7: ${font Sans:style=Bold:size=8}${color1}${cpu cpu7}%${font}${color} ${alignr 15}Core3: ${color1}${execi 30 sensors | grep 'Core 3' | cut -c17-21}°C${color}${font}  
+
+## Memory
+${image ~/.config/conky/ConkyImages/Base.png -p 10,219 -s 359x86} ${voffset -20}
+${image ~/.config/conky/ConkyImages/Glass/Memory.png -p 32,239 -s 45x45}
+${voffset 3}${goto 92}RAM:${color1} ${font Sans:style=Bold:size=8}${memperc}%${font}${color}${font Sans:style=Bold:size=8}${font} ${goto 170}Free: ${font Sans:style=Bold:size=8}${color2}${memeasyfree}${color} ${font}${goto 265}Used: ${font Sans:style=Bold:size=8}${color2}${mem}${color}${font}
+${goto 92}Swp:${color1} ${font Sans:style=Bold:size=8}${swapperc}%${font}${color}${font Sans:style=Bold:size=8}${font} ${goto 170}Free: ${font Sans:style=Bold:size=8}${color2}${swapmax}${color} ${font}${goto 265}Used: ${font Sans:style=Bold:size=8}${color2}${swap}${color}${font}
+${goto 92}Sys:${color1} ${font Sans:style=Bold:size=8}${fs_used_perc /}%${font}${color} ${goto 170}Free: ${color2}${font Sans:style=Bold:size=8}${fs_free /}${color}${font} ${goto 265}Used: ${font Sans:style=Bold:size=8}${color2}${fs_used /}${color}${font}
+${goto 92}Home:${color1} ${font Sans:style=Bold:size=8}${fs_used_perc /home}%${font}${color} ${goto 170}Free: ${color2}${font Sans:style=Bold:size=8}${fs_free /home}${color}${font} ${goto 265}Used: ${font Sans:style=Bold:size=8}${color2}${fs_used /home}${color}${font}
+
+## Connection
+${image ~/.config/conky/ConkyImages/Base.png -p 10,292 -s 359x86} ${voffset -20}
+# |--Wlan0
+${if_up wlp8s0}
+${image ~/.config/conky/ConkyImages/Glass/InternetWlan.png -p 32,312 -s 45x45}
+${voffset -4}${goto 92}${voffset -6}Up: ${font Sans:style=Bold:size=8}${color1}${upspeed wlp8s0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totalup wlp8s0}${color}${font}${alignr 15}${color2}${upspeedgraph wlp8s0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Down: ${font Sans:style=Bold:size=8}${color1}${downspeed wlp8s0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totaldown wlp8s0}${color}${font}${alignr 15}${color2}${downspeedgraph wlp8s0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Signal: ${font Sans:style=Bold:size=8}${color1}${wireless_link_qual wlp8s0}%${color}${font} ${goto 180}Local IP: ${font Sans:style=Bold:size=8}${addr wlp8s0}${font}
+# |--ETH0                                                                      
+${else}${if_up enp9s0}                                                           
+${image ~/.config/conky/ConkyImages/Glass/InternetEth.png -p 32,312 -s 45x45}  
+${voffset -4}${goto 92}${voffset -6}Up: ${font Sans:style=Bold:size=8}${color1}${upspeed enp9s0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totalup enp9s0}${color}${font}${alignr 15}${color2}${upspeedgraph enp9s0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Down: ${font Sans:style=Bold:size=8}${color1}${downspeed enp9s0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totaldown enp9s0}${color}${font}${alignr 15}${color2}${downspeedgraph enp9s0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Signal: ${font Sans:style=Bold:size=8}${color1}${wireless_link_qual enp9s0}%${color}${font} ${goto 180}Local IP: ${font Sans:style=Bold:size=8}${addr enp9s0}${font}
+# |--PPP0                                                                      
+${endif}${else}${if_up ppp0}
+${image ~/.config/conky/ConkyImages/Glass/InternetEth.png -p 32,312 -s 45x45}  
+${voffset -4}${goto 92}${voffset -6}Up: ${font Sans:style=Bold:size=8}${color1}${upspeed ppp0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totalup ppp0}${color}${font}${alignr 15}${color2}${upspeedgraph ppp0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Down: ${font Sans:style=Bold:size=8}${color1}${downspeed ppp0}${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2}${totaldown ppp0}${color}${font}${alignr 15}${color2}${downspeedgraph ppp0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Signal: ${font Sans:style=Bold:size=8}${color1}${wireless_link_qual ppp0}%${color}${font} ${goto 180}Local IP: ${font Sans:style=Bold:size=8}${addr ppp0}${font}
+${endif}${else}
+${voffset -4}${goto 92}${voffset -6}Up: ${font Sans:style=Bold:size=8}${color1} -- ${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2} -- ${color}${font}${alignr 15}${color2} -- ${color}
+${voffset 4}${goto 92}Down: ${font Sans:style=Bold:size=8}${color1} -- ${color}${font} ${goto 180}Data: ${font Sans:style=Bold:size=8}${color2} -- ${color}${font}${alignr 15}${color2}${downspeedgraph ppp0 8,60 92B6F1 CCDFFF}${color}
+${voffset 4}${goto 92}Signal: ${font Sans:style=Bold:size=8}${color1} -- %${color}${font} ${goto 180}Local IP: ${font Sans:style=Bold:size=8} No connection :\( ${font}
+${endif}${endif}
+
+## Weather
+${image ~/.config/conky/ConkyImages/Base.png -p 10,365 -s 359x86}
+${image ~/.config/conky/ConkyWeatherImages/assets/Transparent/God-Mode/pressure.png -p 340,377 -s 16x16}\
+${image ~/.config/conky/ConkyWeatherImages/assets/Transparent/God-Mode/humidity.png -p 340,397 -s 16x16}\
+${image ~/.config/conky/ConkyWeatherImages/assets/Transparent/God-Mode/wind-2.png -p 340,418 -s 16x16}\
+${execi 300 cp ~/.config/conky/ConkyImages/WeatherIcons/$(grep "yweather:forecast" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*" | awk 'NR==1').png ~/.cache/weather-1.png}${image ~/.cache/weather-1.png -p 32,385 -s 45x45}\
+${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=455888&u=c" -o ~/.cache/weather.xml}
+${voffset -27}${goto 110}${font Droid Sans :size=36}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°${font}${color}
+${goto 92}${voffset 1}${font Droid Sans :size=12}${color1}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}${color}
+${color1}${alignr 40}${voffset -60}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "pressure=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+${color1}${alignr 40}${voffset 5}${execi 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} %${color}
+${color1}${alignr 40}${voffset 5}${execi 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"} ${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${color}
+
+# Date and time
+${image ~/.config/conky/ConkyImages/Base.png -p 10,438 -s 359x86} ${voffset -30}
+${image ~/.config/conky/ConkyImages/Glass/Clock.png -p 32,458 -s 45x45}
+${voffset 7}${font Droid Sans Mono :size=22}${alignc -20}${color2}${time %H:%M:%S}${font}${color}
+${voffset 4}${font Droid Sans :size=10}${alignc -20}${color6}${time %A, %B %d}${font}${color}
+

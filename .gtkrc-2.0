@@ -1,0 +1,4 @@
+gtk-font-name = "DejaVu Sans Mono 9"
+gtk-theme-name = "Breeze-Dark"
+gtk-icon-theme-name = "breeze-dark"
+gtk-toolbar-style   = GTK_TOOLBAR_BOTH_HORIZ

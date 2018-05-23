@@ -1,0 +1,69 @@
+## General
+set imap_check_subscribed
+set imap_keepalive = 300
+unset imap_passive
+set mail_check = 60
+
+set move = no  #Prevents mutt from asking to move read messages to INBOX
+set date_format="%y%m%d-%H%M%S"
+set sleep_time = 0
+set include=yes
+set mark_old=no
+set editor='vim + -c "set textwidth=80" -c "set wrap" -c "set nocp" -c "?^$"'
+set text_flowed=yes
+
+source ~/.mutt/gpg.rc
+source ~/.mutt/sidebar.rc
+
+## Sorting
+set sort = threads
+set sort_browser = date
+set sort_aux = reverse-last-date-received
+
+## HTML
+set mailcap_path 	= ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+## Shortcuts
+macro index,pager <F2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/Disroot<enter><change-folder>!<enter>'
+macro index,pager <F3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/Google<enter><change-folder>!<enter>'
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+macro attach W <tag-prefix><save-entry><kill-line>~/NotSynced/Downloads 
+
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager J next-page
+bind attach,index,pager K previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+## Clean up
+set message_cachedir=~/.cache/mutt/messages
+source "~/.mutt/purgecache.sh '$message_cachedir'|"
+
+## General appearance
+set pager_index_lines = 8
+
+hdr_order From To Cc Date #Sorting emails by the given criteria (from left to right)
+ignore *
+unignore from: date subject to cc
+unignore x-mailing-list: posted-to:
+unignore x-mailer: #Nice looks
+
+color hdrdefault white black  # headers white on black
+color header brightgreen black ^From:  # sender's name in green
+color quoted cyan black  # quoted text in blue
+color signature red black   # signature in red
+
+## Accounts - the last will be the default
+# Google
+source ~/.mutt/accounts/Google
+folder-hook $folder 'source ~/.mutt/accounts/Google'
+
+# Disroot
+source ~/.mutt/accounts/Disroot
+folder-hook $folder 'source ~/.mutt/accounts/Disroot'
+

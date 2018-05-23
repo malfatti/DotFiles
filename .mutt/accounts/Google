@@ -1,0 +1,30 @@
+## Incoming
+set imap_user = thawann.malfatti@gmail.com
+set folder = imaps://thawann.malfatti@imap.gmail.com/
+#set folder = [Gmail]/
+set spoolfile = +Inbox
+set postponed = +Drafts
+unset record
+#set record = +Sent
+
+## Outgoing
+set realname = 'Thawann Malfatti'
+set from = $imap_user
+set smtp_url = smtps://thawann.malfatti@smtp.gmail.com
+set ssl_force_tls = yes
+#set ssl_starttls
+
+## Set folders
+unmailboxes *
+mailboxes =INBOX "=[Gmail]/All Mail" =[Gmail]/Bin =[Gmail]/Drafts =[Gmail]/Important "=[Gmail]/Sent Mail" =[Gmail]/Spam "===============" =UFRN/Boletim =UFRN/malfatti@neuro.ufrn.br
+
+## Specific shortcuts
+macro index I "<save-message>+[Gmail]/Inbox <enter>" "Move email to inbox"
+macro index D "<save-message>+[Gmail]/Bin <enter>" "Delete email"
+macro index S "<save-message>+[Gmail]/Spam <enter>" "Mark email as spam"
+macro index A "<save-message>+[Gmail]/All <enter>" "Archive email"
+
+## Mutt
+color status cyan default
+#color indicator cyan black
+account-hook $folder "set imap_user=thawann.malfatti@gmail.com"

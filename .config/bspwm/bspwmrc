@@ -1,0 +1,60 @@
+#! /bin/sh
+
+## BSPWM settings
+bspc monitor eDP1 -n 0 -d I II III IV V VI VII VIII IX
+bspc monitor HDMI1 -n 1 -d X
+bspc desktop -f V
+
+bspc config border_width         3
+bspc config window_gap           7
+bspc config focused_border_color "#990000"
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config focus_follows_pointer true
+#bspc config click_to_focus       true
+bspc config pointer_modifier    lock
+bspc config pointer_action1     move
+bspc config pointer_action3     resize_corner
+
+# Window rules (use WM_CLASS(STRING))
+bspc rule -a Emacs state=floating
+bspc rule -a feh state=floating
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a "ij-ImageJ" state=floating
+bspc rule -a "MATLAB R2015a" state=floating
+bspc rule -a MPlayer state=floating
+bspc rule -a PCSX2 state=floating
+bspc rule -a qjackctl state=floating
+bspc rule -a Tk state=floating
+bspc rule -a Xsane state=floating
+bspc rule -a "Wine" state=floating
+
+### Autostart
+## Run-once programs
+xrdb ~/.Xresources # Set X settings
+numlockx on # Turn on NumLock
+xset -dpms s off # Turn off screensaver
+feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
+bash ~/.config/bspwm/java_fix # Fix java windows
+
+## Keep-running programs
+sxhkd & # Turn on shortcuts (MANDATORY)
+
+# System monitor
+bash $SCRIPTSPATH/Bash/System/SystemMonitor.sh &
+
+# Audio and video
+bash $SCRIPTSPATH/Bash/Audio/ALSA/SoundAutostart.sh &
+sudo bumblebeed &> ~/.log/BumblebeeSession.log &
+
+# My apps
+compton --config .config/compton.conf &
+conky -c ~/.config/conky/ConkySystemTop &
+conky -c ~/.config/conky/ConkyDevices &
+conky -c ~/.config/conky/ConkyDebug &
+conky -c ~/.config/conky/ConkyToDo &
+owncloud &
+
