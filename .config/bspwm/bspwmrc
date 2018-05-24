@@ -39,16 +39,12 @@ numlockx on # Turn on NumLock
 xset -dpms s off # Turn off screensaver
 feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
 bash ~/.config/bspwm/java_fix # Fix java windows
+bash $SCRIPTSPATH/Bash/Audio/ALSA/SoundAutostart.sh # Set audio
 
 ## Keep-running programs
 sxhkd & # Turn on shortcuts (MANDATORY)
-
-# System monitor
-bash $SCRIPTSPATH/Bash/System/SystemMonitor.sh &
-
-# Audio and video
-bash $SCRIPTSPATH/Bash/Audio/ALSA/SoundAutostart.sh &
-sudo bumblebeed &> ~/.log/BumblebeeSession.log &
+bash $SCRIPTSPATH/Bash/System/SystemMonitor.sh & # System monitor
+sudo bumblebeed &> ~/.log/BumblebeeSession.log & # Video
 
 # My apps
 compton --config .config/compton.conf &
