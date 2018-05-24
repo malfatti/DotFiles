@@ -6,7 +6,7 @@ export CACA_DRIVER=ncurses
 export QT_QPA_PLATFORMTHEME=qt5ct                                               
                                                                                 
 ## Set perl paths                                                               
-export PERL5LIB="/home/malfatti/.local/lib64/perl/"                             
+export PERL5LIB="$HOME/.local/lib64/perl/"                             
                                                                                 
 ## set COWPATH so it includes user's cows                                       
 export COWPATH="/usr/share/cowsay/cows"                                         
@@ -15,12 +15,13 @@ if [ -d "$HOME/.config/CowFiles" ] ; then
 fi                                                                              
 
 ## Set R paths                                                                  
-export R_LIBS_USER=~/.local/lib64/R                                             
-                                                                                
+export R_LIBS_USER=~/.local/lib64/R 
+
 ## Set Scripts path                                                             
-export SCRIPTSPATH=~/Software/Git/Malfatti/SciScripts                           
+export GITPATH=~/Software/Git
+export SCRIPTSPATH=$GITPATH/Malfatti/SciScripts                           
 export DATAPATH=~/Documents/PhD/Data                                            
-export DOTPATH=~/Software/Git/Malfatti/DotFiles
+export DOTPATH=$GITPATH/Malfatti/DotFiles
 export NEBULAPATH=~/Nebula                                                      
                                                                                 
 ## Set Wine                                                                     

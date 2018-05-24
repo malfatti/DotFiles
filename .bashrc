@@ -1,4 +1,4 @@
-# Test for an interactive shell. 
+# Test for an interactive shell.
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return

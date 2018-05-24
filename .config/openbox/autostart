@@ -1,12 +1,16 @@
 ## Autostart ##
 
 ## Run once
+
+# Environment
 DESKTOP_ENV="OPENBOX"
-xrdb ~/.Xresources # Set Terminal settings 
+xrdb ~/.Xresources # Set Terminal settings
 numlockx on # Turn on NumLock
+
+# Screen
 xset -dpms s off # Turn off screensaver
 feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
-~/.MyScripts/SetLayout/setlayout 0 3 3 0 # Set desktop geometry 3x3
+~/.Scripts/SetLayout/setlayout 0 3 3 0 # Set desktop geometry 3x3
 
 ## Keep running
 bash $SCRIPTSPATH/Bash/Sys/SystemMonitor.sh & # System monitor
