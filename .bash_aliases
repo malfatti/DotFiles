@@ -38,11 +38,11 @@ alias pdflatex='bash $SCRIPTSPATH/Bash/Files/PDFLaTeX.sh'
 alias W3m='xterm -e w3m -no-mouse'
 
 # OneLiners
-alias FindDups='find -name $1 -print0 | xargs -0 md5sum | sort | uniq -Dw 32'
 alias Black2Blue='convert -density 300 $1 -fill blue -opaque black $2'
+alias FindDups='find -name $1 -print0 | xargs -0 md5sum | sort | uniq -Dw 32'
 
 # Shortcuts to programs
-alias Arduino='~/Software/Programs/Arduino*/arduino'
+alias Arduino='~/Software/Programs/Arduino/arduino'
 alias Conda='~/Software/Miniconda3/bin/conda'
 alias ECM='~/Software/Programs/ECMTools/ecm'
 alias UnECM='~/Software/Programs/ECMTools/unecm'
@@ -72,10 +72,10 @@ alias SteamWorldDig='Here=$(pwd); cd $WINEPATH/SteamWorldDig/drive_c/GOGGames/St
 alias TheCave='Here=$(pwd); cd $WINEPATH/TheCave; WINEPREFIX=$(pwd) WINEDEBUG=-all vblank_mode=0 primusrun wine drive_c/Program\ Files/The\ Cave/Cave.exe; cd $Here'
 
 ## Scripts
-alias Transmission='bash ~/.Scripts/Programs/Transmission.sh'
 alias Alarm='bash ~/.Scripts/Alarm.sh'
+alias Android='bash ~/.Scripts/Android.sh'
+alias BashOptions='bash ~/.Scripts/BashOptions.sh'
 alias BkpSysFiles='bash ~/.Scripts/BkpSysFiles.sh'
-alias ConvertFlacCueToMp3='bash ~/.Scripts/ConvertFlacCueToMp3.sh'
 alias DD='bash $SCRIPTSPATH/Bash/System/DD.sh'
 alias LaTex2Doc='bash $SCRIPTSPATH/Bash/Files/LaTex2Doc.sh'
 alias CpDirTree='bash ~/.Scripts/CpDirTree.sh'
@@ -91,8 +91,9 @@ alias RGB2CMYK='bash $SCRIPTSPATH/Bash/Files/RGB2CMYK.sh'
 alias RWindows='bash ~/.Scripts/Programs/RWindows.sh'
 alias SetFont='bash $SCRIPTSPATH/Bash/System/SetFont.sh'
 alias Sozi2Pdf='python3 ~/.Scripts/Sozi2PDF/sozi2pdf.py'
+alias Transmission='bash ~/.Scripts/Programs/Transmission.sh'
+alias TrimSpaces='bash $SCRIPTSPATH/Bash/Files/TrimSpaces.sh'
 alias UpdateHostsFile='sudo bash ~/.Scripts/UpdateHostsFile.sh'
-alias BashOptions='bash ~/.Scripts/BashOptions.sh'
 
 ## Sound and Video
 alias DisplayCtl='bash $SCRIPTSPATH/Bash/Video/DisplayCtl.sh'

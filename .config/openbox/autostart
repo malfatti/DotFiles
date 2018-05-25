@@ -13,17 +13,16 @@ feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
 ~/.Scripts/SetLayout/setlayout 0 3 3 0 # Set desktop geometry 3x3
 
 ## Keep running
-bash $SCRIPTSPATH/Bash/Sys/SystemMonitor.sh & # System monitor
+bash $SCRIPTSPATH/Bash/System/SystemMonitor.sh & # System monitor
 
 # Audio and video
-bash $SCRIPTSPATH/Bash/ALSA/SoundAutostart.sh &
+bash $SCRIPTSPATH/Bash/Audio/ALSA/SoundAutostart.sh &
 sudo bumblebeed &> ~/.log/BumblebeeSession.log &
 
 # Other apps
 compton --config .config/compton.conf &
-sleep 1 && conky -c ~/.config/conky/ConkySystemTop &
-sleep 1 && conky -c ~/.config/conky/ConkyDevices &
-sleep 1 && conky -c ~/.config/conky/ConkyDebug &
+conky -c ~/.config/conky/ConkySystemTop --daemonize
+conky -c ~/.config/conky/ConkyDevices --daemonize
+conky -c ~/.config/conky/ConkyDebug --daemonize
 #sleep 1 && tint2 -c ~/.config/tint2/tint2rcTasks &
-tint2 &
 owncloud &

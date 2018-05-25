@@ -6,7 +6,7 @@ fi
 
 ##=== My config ===##
 
-## Update title with the last command                                          
+## Update title with the last command
 trap 'echo -ne "\033]2;$(history 1 | sed "s/^[ ]*[0-9]*[ ]*//g")\007"' DEBUG
 
 ## Set prompt
