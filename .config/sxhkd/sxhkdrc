@@ -53,7 +53,7 @@ super + i
 
 # Toggle Displays
 super + p
-    bash $SCRIPTSPATH/Video/DisplayToggle.sh &>> /dev/null
+    bash $SCRIPTSPATH/Bash/Video/DisplayToggle.sh &>> /dev/null
 
 # Lock
 alt + ctrl + super + l
