@@ -5,24 +5,12 @@
 # Environment
 DESKTOP_ENV="OPENBOX"
 xrdb ~/.Xresources # Set Terminal settings
-numlockx on # Turn on NumLock
 
-# Screen
-xset -dpms s off # Turn off screensaver
+#Screen
 feh --bg-scale --randomize ~/Images/Others/Wallpapers/* # Set a random wallpaper
-~/.Scripts/SetLayout/setlayout 0 3 3 0 # Set desktop geometry 3x3
 
 ## Keep running
-bash $SCRIPTSPATH/Bash/System/SystemMonitor.sh & # System monitor
-
-# Audio and video
-bash $SCRIPTSPATH/Bash/Audio/ALSA/SoundAutostart.sh &
-sudo bumblebeed &> ~/.log/BumblebeeSession.log &
-
-# Other apps
 compton --config .config/compton.conf &
-conky -c ~/.config/conky/ConkySystemTop --daemonize
-conky -c ~/.config/conky/ConkyDevices --daemonize
-conky -c ~/.config/conky/ConkyDebug --daemonize
-#sleep 1 && tint2 -c ~/.config/tint2/tint2rcTasks &
+tint2 -c ~/.config/tint2/tint2rc &
+telegram-desktop &
 owncloud &

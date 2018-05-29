@@ -14,13 +14,13 @@ super + F1
 
 # screenshots
 Print
-    maim ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Screen.png
+    maim ~/Images/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S)_Screen.png
 
 super + Print
-    maim -i $(xdotool getactivewindow) ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Window.png
+    maim -i $(xdotool getactivewindow) ~/Images/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S)_Window.png
 
 ctrl + super + Print
-    maim -s -c 1,0,0,0.6 ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Selection.png
+    maim -s -c 1,0,0,0.6 ~/Images/Screenshots/Screenshot_$(date +%Y%m%d-%H%M%S)_Selection.png
 
 
 ## === Audio

@@ -12,7 +12,7 @@
   <focusNew>yes</focusNew>
   <!-- always try to focus new windows when they appear. other rules do
        apply -->
-  <followMouse>yes</followMouse>
+  <followMouse>no</followMouse>
   <!-- move focus to a window when you move the mouse into it -->
   <focusLast>yes</focusLast>
   <!-- focus the last used window when changing desktops, instead of the one
@@ -61,7 +61,7 @@
   <keepBorder>yes</keepBorder>
   <animateIconify>yes</animateIconify>
   <font place="ActiveWindow">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>8</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -70,7 +70,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="InactiveWindow">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>8</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -79,7 +79,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="MenuHeader">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>9</size>
     <!-- font size in points -->
     <weight>normal</weight>
@@ -88,7 +88,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="MenuItem">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>9</size>
     <!-- font size in points -->
     <weight>normal</weight>
@@ -97,7 +97,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="ActiveOnScreenDisplay">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>9</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -106,7 +106,7 @@
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="InactiveOnScreenDisplay">
-    <name>sans</name>
+    <name>Deja Vu Sans Mono</name>
     <size>9</size>
     <!-- font size in points -->
     <weight>bold</weight>
@@ -125,20 +125,12 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-  <number>9</number>
-  <firstdesk>5</firstdesk>
+  <number>1</number>
+  <firstdesk>1</firstdesk>
   <names>
     <!-- set names up here if you want to, like this:
     -->
-    <name>TopLeft</name>
-    <name>TopMid</name>
-    <name>TopRight</name>
-    <name>MidLeft</name>
-    <name>Terminal</name>
-    <name>MidRight</name>
-    <name>DownLeft</name>
-    <name>DownMid</name>
-    <name>DownRight</name>
+    <name>Desktop</name>
   </names>
   <popupTime>875</popupTime>
   <!-- The number of milliseconds to show the popup for when switching
@@ -197,60 +189,6 @@
   <chainQuitKey>C-g</chainQuitKey>
 
   <!-- Keybindings for desktop switching -->
-  <keybind key="C-W-A-t">
-    <action name="SendToDesktop"><to>1</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-y">
-    <action name="SendToDesktop"><to>2</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-u">
-    <action name="SendToDesktop"><to>3</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-g">
-    <action name="SendToDesktop"><to>4</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-h">
-    <action name="SendToDesktop"><to>5</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-j">
-    <action name="SendToDesktop"><to>6</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-b">
-    <action name="SendToDesktop"><to>7</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-n">
-    <action name="SendToDesktop"><to>8</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-A-m">
-    <action name="SendToDesktop"><to>9</to><wrap>no</wrap></action>
-  </keybind>
-  <keybind key="C-W-t">
-    <action name="GoToDesktop"><to>1</to></action>
-  </keybind>
-  <keybind key="C-W-y">
-    <action name="GoToDesktop"><to>2</to></action>
-  </keybind>
-  <keybind key="C-W-u">
-    <action name="GoToDesktop"><to>3</to></action>
-  </keybind>
-  <keybind key="C-W-g">
-    <action name="GoToDesktop"><to>4</to></action>
-  </keybind>
-  <keybind key="C-W-h">
-    <action name="GoToDesktop"><to>5</to></action>
-  </keybind>
-  <keybind key="C-W-j">
-    <action name="GoToDesktop"><to>6</to></action>
-  </keybind>
-  <keybind key="C-W-b">
-    <action name="GoToDesktop"><to>7</to></action>
-  </keybind>
-  <keybind key="C-W-n">
-    <action name="GoToDesktop"><to>8</to></action>
-  </keybind>
-  <keybind key="C-W-m">
-    <action name="GoToDesktop"><to>9</to></action>
-  </keybind>
   <keybind key="W-d">
     <action name="ToggleShowDesktop"/>
   </keybind>
@@ -330,53 +268,46 @@
    <!-- Screenshot -->
     <keybind key="Print">
       <action name="Execute">
-        <command>scrot -e 'mv $f ~/NotSynced/HD-MyOwnData/Images/Screenshots'</command>
+        <command>sh -c "maim ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Screen.png"</command>
       </action>
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>scrot -u -e 'mv $f ~/NotSynced/HD-MyOwnData/Images/Screenshots'</command>
+        <command>sh -c "maim -i $(xdotool getactivewindow) ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Window.png"</command>
       </action>
     </keybind>
     <keybind key="C-W-Print">
       <action name="Execute">
-        <command>scrot -s -e 'mv $f ~/NotSynced/HD-MyOwnData/Images/Screenshots'</command>
+        <command>sh -c "maim -s -c 1,0,0,0.6 ~/Screenshot_$(date +%Y%m%d-%H%M%S)_Selection.png"</command>
       </action>
     </keybind>
-
-   <!-- Skippy-XD
-    <keybind key="W-a">
-      <action name="Execute">
-        <command>skippy-xd</command>
-      </action>
-    </keybind> -->
 
   <!-- Keybindings to open applications -->
-   <!-- ST 80x9 -->
+   <!-- URxvt 64x9 -->
     <keybind key="A-F1">
       <action name="Execute">
-        <command>urxvt -g 80x9</command>
+        <command>urxvt -geometry 64x9</command>
       </action>
     </keybind>
 
-   <!-- ST 80x24 -->
+   <!-- URxvt 64x20 -->
     <keybind key="A-F2">
       <action name="Execute">
-        <command>urxvt -g 80x24</command>
+        <command>urxvt -geometry 64x20</command>
       </action>
     </keybind>
 
-   <!-- ST 80x55 -->
+   <!-- URxvt 64x43 -->
     <keybind key="A-F3">
       <action name="Execute">
-        <command>urxvt -g 80x55</command>
+        <command>urxvt -geometry 64x43</command>
       </action>
     </keybind>
 
-   <!-- ST 155x80 -->
+   <!-- URxvt 125x55 -->
     <keybind key="W-A-F3">
       <action name="Execute">
-        <command>urxvt -g 155x80</command>
+        <command>urxvt -geometry 125x55</command>
       </action>
     </keybind>
  
@@ -389,66 +320,56 @@
       </action>
     </keybind>
 
-   <!-- ALSA output -->
-    <keybind key="XF86AudioRaiseVolume">
+   <!-- ALSA output
+    <keybind key="A-XF86AudioRaiseVolume">
       <action name="Execute">
-          <command>bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh up</command>
+        <command>amixer sset Master,0 1+</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioLowerVolume">
+    <keybind key="A-XF86AudioLowerVolume">
       <action name="Execute">
-          <command>bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh down</command>
+        <command>amixer sset Master,0 1-</command>
       </action>
     </keybind>
-    <keybind key="W-XF86AudioLowerVolume">
+    <keybind key="A-XF86AudioMute">
       <action name="Execute">
-          <command>bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh toggle</command>
+        <command>amixer sset Master,0 toggle</command>
       </action>
-    </keybind>
+    </keybind> -->
 
    <!-- ALSA input-->
-    <keybind key="S-W-XF86AudioRaiseVolume">
+    <keybind key="S-A-XF86AudioRaiseVolume">
       <action name="Execute">
         <command>amixer sset Capture 5%+</command>
       </action>
     </keybind>
-    <keybind key="S-W-XF86AudioLowerVolume">
+    <keybind key="S-A-XF86AudioLowerVolume">
       <action name="Execute">
         <command>amixer sset Capture 5%-</command>
       </action>
     </keybind>
-    <keybind key="S-W-C-XF86AudioLowerVolume">
+    <keybind key="S-A-XF86AudioMute">
       <action name="Execute">
         <command>amixer sset Capture,0 toggle</command>
       </action>
     </keybind>
 
-  <!-- PulseAudio
+  <!-- PulseAudio -->
    <keybind key="XF86AudioRaiseVolume">
      <action name="Execute">
-       <command>bash ~/.MyScripts/PulseAudio/PAVolCtrl1 plus</command>
+       <command>sh -c "bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh up"</command>
      </action>
    </keybind>
    <keybind key="XF86AudioLowerVolume">
      <action name="Execute">
-       <command>bash ~/.MyScripts/PulseAudio/PAVolCtrl1 minus</command>
+       <command>sh -c "bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh down"</command>
      </action>
    </keybind>
    <keybind key="W-XF86AudioLowerVolume">
       <action name="Execute">
-        <command>bash ~/.MyScripts/PulseAudio/PAVolCtrl1 mute</command>
+        <command>sh -c "bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh toggle"</command>
       </action>
     </keybind>
-  <keybind key="C-XF86AudioRaiseVolume">
-     <action name="Execute">
-       <command>bash ~/.MyScripts/PulseAudio/PAVolCtrl2 plus</command>
-     </action>
-   </keybind>
-   <keybind key="C-XF86AudioLowerVolume">
-     <action name="Execute">
-       <command>bash ~/.MyScripts/PulseAudio/PAVolCtrl2 minus</command>
-     </action>
-   </keybind> -->
 
      <!-- Screen brightness control -->
     <keybind key="XF86MonBrightnessUp">
@@ -461,8 +382,18 @@
         <command>xbacklight -dec 10</command>
       </action>
     </keybind>
+    <keybind key="W-p">
+      <action name="Execute">
+        <command>bash $SCRIPTSPATH/Bash/Video/DisplayToggle.sh</command>
+      </action>
+    </keybind>
 
   <!-- Power control -->
+   <keybind key="XF86Sleep">
+     <action name="Execute">
+         <command>sh -c "bash $SCRIPTSPATH/Bash/Power/GoToSleep.sh"</command>
+     </action>
+   </keybind>
    <keybind key="C-W-A-l">
      <action name="Execute">
        <command>slock</command>
@@ -783,7 +714,7 @@
 
   <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
   <!-- system menu files on Debian systems -->
-  <!-- <file>/var/lib/openbox/debian-menu.xml</file> -->
+  <file>/var/lib/openbox/debian-menu.xml</file>
   <file>menu.xml</file>
   <hideDelay>200</hideDelay>
   <!-- if a press-release lasts longer than this setting (in milliseconds), the
@@ -901,18 +832,6 @@
 
   # end of the example
 -->
-  
-  <application name="xv" class="MPlayer">
-   <decor>no</decor>
-  </application>
-
-  <application name="urxvt" class="URxvt">
-   <decor>no</decor>
-  </application>
-
-  <application name="st-256color" class="st-256color">
-   <decor>no</decor>
-  </application>
 
   <application class="Soffice" title="LibreOffice 4.2">
    <position force="yes">

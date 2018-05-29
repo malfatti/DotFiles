@@ -1,35 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://openbox.org/
-                file:///usr/share/openbox/menu.xsd">
-
-<menu id="root-menu" label="Openbox 3">
-  <item label="Terminal emulator">
-    <action name="Execute"><execute>x-terminal-emulator</execute></action>
-  </item>
-  <item label="Web browser">
-    <action name="Execute"><execute>x-www-browser</execute></action>
-  </item>
-  <!-- This requires the presence of the 'menu' package to work -->
-  <menu id="/Debian" />
-  <separator />
-  <menu id="client-list-menu" />
-  <separator />
-  <item label="ObConf">
-    <action name="Execute"><execute>obconf</execute></action>
-  </item>
-  <item label="Reconfigure">
-    <action name="Reconfigure" />
-  </item>
-  <item label="Restart">
-    <action name="Restart" />
-  </item>
-  <separator />
-  <item label="Exit">
-    <action name="Exit" />
-  </item>
-</menu>
-
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://openbox.org/">
+  <menu id="root-menu" label="Applications">
+    <item label="File Manager" icon=""><action name="Execute"><execute><![CDATA[xdg-open .]]></execute></action></item>
+    <item label="Terminal" icon=""><action name="Execute"><execute><![CDATA[xterm]]></execute></action></item>
+    <item label="Web Browser" icon=""><action name="Execute"><execute><![CDATA[xdg-open http://]]></execute></action></item>
+    <item label="Run command" icon="/usr/share/icons/breeze-dark/actions/24/system-run.svg"><action name="Execute"><execute><![CDATA[gmrun]]></execute></action></item>
+  <separator label="Categories"/>
+  <menu id="Accessories" icon="/usr/share/icons/breeze-dark/categories/32/applications-utilities.svg" label="Accessories">
+    <item label="Ark" icon="/usr/share/icons/breeze-dark/apps/48/ark.svg"><action name="Execute"><execute><![CDATA[ark]]></execute></action></item>
+    <item label="compton" icon=""><action name="Execute"><execute><![CDATA[compton]]></execute></action></item>
+    <item label="Klipper" icon="/usr/share/icons/breeze-dark/apps/48/klipper.svg"><action name="Execute"><execute><![CDATA[klipper]]></execute></action></item>
+    <item label="ownCloud desktop sync client" icon="/usr/share/icons/hicolor/16x16/apps/owncloud.png"><action name="Execute"><execute><![CDATA[owncloud]]></execute></action></item>
+    <item label="PCManFM File Manager" icon="/usr/share/icons/breeze-dark/apps/64/system-file-manager.svg"><action name="Execute"><execute><![CDATA[pcmanfm-qt]]></execute></action></item>
+    <item label="Spectacle" icon="/usr/share/icons/breeze-dark/apps/48/spectacle.svg"><action name="Execute"><execute><![CDATA[spectacle]]></execute></action></item>
+  </menu>
+  <menu id="Development" icon="/usr/share/icons/breeze-dark/categories/32/applications-development.svg" label="Development">
+    <item label="Designer" icon="/usr/share/pixmaps/designer.png"><action name="Execute"><execute><![CDATA[designer]]></execute></action></item>
+    <item label="Geany" icon="/usr/share/icons/hicolor/16x16/apps/geany.png"><action name="Execute"><execute><![CDATA[geany]]></execute></action></item>
+    <item label="Qt 5 Designer" icon="/usr/share/pixmaps/designer.png"><action name="Execute"><execute><![CDATA[/usr/lib64/qt5/bin/designer]]></execute></action></item>
+    <item label="sandbox" icon="/usr/share/pixmaps/sandbox.svg"><action name="Execute"><execute><![CDATA[xterm -e 'sandbox']]></execute></action></item>
+  </menu>
+  <menu id="Education" icon="/usr/share/icons/breeze-dark/categories/32/applications-science.svg" label="Education">
+    <item label="LibreOffice Math" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-math.svg"><action name="Execute"><execute><![CDATA[libreoffice --math]]></execute></action></item>
+  </menu>
+  <menu id="Graphics" icon="/usr/share/icons/breeze-dark/categories/32/applications-graphics.svg" label="Graphics">
+    <item label="Gwenview" icon="/usr/share/icons/breeze-dark/apps/48/gwenview.svg"><action name="Execute"><execute><![CDATA[gwenview]]></execute></action></item>
+    <item label="Inkscape" icon="/usr/share/icons/breeze-dark/apps/48/inkscape.svg"><action name="Execute"><execute><![CDATA[inkscape]]></execute></action></item>
+    <item label="LibreOffice Draw" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-draw.svg"><action name="Execute"><execute><![CDATA[libreoffice --draw]]></execute></action></item>
+    <item label="Okular" icon="/usr/share/icons/breeze-dark/apps/48/okular.svg"><action name="Execute"><execute><![CDATA[okular]]></execute></action></item>
+    <item label="XDVI" icon="/usr/share/pixmaps/xdvik.xpm"><action name="Execute"><execute><![CDATA[xdvi]]></execute></action></item>
+    <item label="XSane Scanner Tool" icon="/usr/share/pixmaps/xsane.png"><action name="Execute"><execute><![CDATA[xsane]]></execute></action></item>
+  </menu>
+  <menu id="Multimedia" icon="/usr/share/icons/breeze-dark/categories/32/applications-multimedia.svg" label="Multimedia">
+    <item label="mpv Media Player" icon="/usr/share/icons/breeze-dark/apps/48/mpv.svg"><action name="Execute"><execute><![CDATA[mpv --player-operation-mode=pseudo-gui --]]></execute></action></item>
+    <item label="PNMixer" icon="/usr/share/icons/hicolor/128x128/apps/pnmixer.png"><action name="Execute"><execute><![CDATA[pnmixer]]></execute></action></item>
+    <item label="PulseAudio Volume Control" icon="/usr/share/icons/breeze-dark/apps/48/multimedia-volume-control.svg"><action name="Execute"><execute><![CDATA[pavucontrol]]></execute></action></item>
+    <item label="SMPlayer" icon="/usr/share/icons/breeze-dark/apps/48/smplayer.svg"><action name="Execute"><execute><![CDATA[smplayer]]></execute></action></item>
+    <item label="VLC media player" icon="/usr/share/icons/breeze-dark/apps/48/vlc.svg"><action name="Execute"><execute><![CDATA[/usr/bin/vlc --started-from-file]]></execute></action></item>
+    <item label="Volti" icon="/usr/share/icons/breeze-dark/apps/48/multimedia-volume-control.svg"><action name="Execute"><execute><![CDATA[volti]]></execute></action></item>
+  </menu>
+  <menu id="Network" icon="/usr/share/icons/breeze-dark/categories/32/applications-internet.svg" label="Network">
+    <item label="Google Chrome" icon="/usr/share/icons/hicolor/16x16/apps/google-chrome.png"><action name="Execute"><execute><![CDATA[/usr/bin/google-chrome-stable]]></execute></action></item>
+    <item label="KDE Connect Indicator" icon="/usr/share/icons/breeze-dark/preferences/32/kdeconnect.svg"><action name="Execute"><execute><![CDATA[kdeconnect-indicator]]></execute></action></item>
+    <item label="Mozilla Firefox" icon="/usr/share/pixmaps/firefox.png"><action name="Execute"><execute><![CDATA[firefox]]></execute></action></item>
+    <item label="Telegram Desktop" icon="/usr/share/icons/breeze-dark/apps/48/telegram.svg"><action name="Execute"><execute><![CDATA[telegram-desktop --]]></execute></action></item>
+    <item label="WPA Supplicant Administration GUI" icon="/usr/share/pixmaps/wpa_gui.svg"><action name="Execute"><execute><![CDATA[wpa_gui]]></execute></action></item>
+  </menu>
+  <menu id="Office" icon="/usr/share/icons/breeze-dark/categories/32/applications-office.svg" label="Office">
+    <item label="LibreOffice Base" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-base.svg"><action name="Execute"><execute><![CDATA[libreoffice --base]]></execute></action></item>
+    <item label="LibreOffice Calc" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-calc.svg"><action name="Execute"><execute><![CDATA[libreoffice --calc]]></execute></action></item>
+    <item label="LibreOffice Draw" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-draw.svg"><action name="Execute"><execute><![CDATA[libreoffice --draw]]></execute></action></item>
+    <item label="LibreOffice Impress" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-impress.svg"><action name="Execute"><execute><![CDATA[libreoffice --impress]]></execute></action></item>
+    <item label="LibreOffice Math" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-math.svg"><action name="Execute"><execute><![CDATA[libreoffice --math]]></execute></action></item>
+    <item label="LibreOffice Writer" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-writer.svg"><action name="Execute"><execute><![CDATA[libreoffice --writer]]></execute></action></item>
+    <item label="LibreOffice" icon="/usr/share/icons/breeze-dark/apps/48/libreoffice-startcenter.svg"><action name="Execute"><execute><![CDATA[libreoffice]]></execute></action></item>
+    <item label="Okular" icon="/usr/share/icons/breeze-dark/apps/48/okular.svg"><action name="Execute"><execute><![CDATA[okular]]></execute></action></item>
+    <item label="Texmaker" icon="/usr/share/pixmaps/texmaker.png"><action name="Execute"><execute><![CDATA[texmaker]]></execute></action></item>
+  </menu>
+  <menu id="Other" icon="/usr/share/icons/breeze-dark/categories/32/applications-other.svg" label="Other">
+    <item label="Help" icon="/usr/share/icons/breeze-dark/apps/48/help-browser.svg"><action name="Execute"><execute><![CDATA[khelpcenter]]></execute></action></item>
+  </menu>
+  <menu id="Settings" icon="" label="Settings">
+    <item label="Adobe Flash Player" icon="/usr/share/pixmaps/flash-player-properties.png"><action name="Execute"><execute><![CDATA[flash-player-properties]]></execute></action></item>
+    <item label="Desktop" icon="/usr/share/icons/breeze-dark/places/64/user-desktop.svg"><action name="Execute"><execute><![CDATA[pcmanfm-qt --desktop-pref=general]]></execute></action></item>
+    <item label="Java Control Panel for Oracle JRE 1.8" icon="/usr/share/icons/hicolor/16x16/apps/sun-jcontrol-oracle-jre-bin-1.8.png"><action name="Execute"><execute><![CDATA[/opt/oracle-jre-bin-1.8.0.172/bin/jcontrol]]></execute></action></item>
+    <item label="KDE Connect Settings" icon="/usr/share/icons/breeze-dark/preferences/32/kdeconnect.svg"><action name="Execute"><execute><![CDATA[kcmshell5 kcm_kdeconnect]]></execute></action></item>
+    <item label="KDE System Settings" icon="/usr/share/icons/breeze-dark/apps/48/preferences-system.svg"><action name="Execute"><execute><![CDATA[systemsettings5]]></execute></action></item>
+    <item label="Network Connections" icon="/usr/share/icons/breeze-dark/preferences/32/preferences-system-network.svg"><action name="Execute"><execute><![CDATA[nm-connection-editor]]></execute></action></item>
+    <item label="Print Settings" icon="/usr/share/icons/breeze-dark/devices/64/printer.svg"><action name="Execute"><execute><![CDATA[system-config-printer]]></execute></action></item>
+    <item label="Qt Configuration Tool" icon="/usr/share/pixmaps/qtconfig.png"><action name="Execute"><execute><![CDATA[qtconfig]]></execute></action></item>
+    <item label="Qt5 Settings" icon="/usr/share/icons/breeze-dark/preferences/32/preferences-desktop-theme.svg"><action name="Execute"><execute><![CDATA[qt5ct]]></execute></action></item>
+    <item label="System Settings" icon="/usr/share/icons/breeze-dark/apps/48/preferences-system.svg"><action name="Execute"><execute><![CDATA[systemsettings5]]></execute></action></item>
+  </menu>
+  <menu id="System" icon="/usr/share/icons/breeze-dark/categories/32/applications-system.svg" label="System">
+    <item label="Dolphin" icon="/usr/share/icons/breeze-dark/apps/64/system-file-manager.svg"><action name="Execute"><execute><![CDATA[dolphin]]></execute></action></item>
+    <item label="KSysGuard" icon="/usr/share/icons/breeze-dark/apps/48/utilities-system-monitor.svg"><action name="Execute"><execute><![CDATA[ksysguard]]></execute></action></item>
+    <item label="KWalletManager" icon="/usr/share/icons/breeze-dark/apps/48/kwalletmanager.svg"><action name="Execute"><execute><![CDATA[kwalletmanager5]]></execute></action></item>
+    <item label="Manage Printing" icon="/usr/share/icons/breeze-dark/devices/64/cups.svg"><action name="Execute"><execute><![CDATA[/usr/bin/xdg-open http://localhost:631/]]></execute></action></item>
+    <item label="Print Settings" icon="/usr/share/icons/breeze-dark/devices/64/printer.svg"><action name="Execute"><execute><![CDATA[system-config-printer]]></execute></action></item>
+    <item label="rxvt-unicode" icon="/usr/share/icons/breeze-dark/apps/64/utilities-terminal.svg"><action name="Execute"><execute><![CDATA[urxvt]]></execute></action></item>
+    <item label="Tint2" icon="/usr/share/icons/hicolor/scalable/apps/tint2.svg"><action name="Execute"><execute><![CDATA[tint2]]></execute></action></item>
+  </menu>
+  <separator/>
+  <menu id="Advanced Settings" icon="" label="Advanced Settings">
+    <item label="Conky RC" icon=""><action name="Execute"><execute><![CDATA[geany ~/.conkyrc]]></execute></action></item>
+    <item label="Tint2 Panel" icon=""><action name="Execute"><execute><![CDATA[geany ~/.config/tint2/tint2rc]]></execute></action></item>
+  <menu id="Obmenu-Generator" icon="" label="Obmenu-Generator">
+    <item label="Menu Schema" icon=""><action name="Execute"><execute><![CDATA[geany ~/.config/obmenu-generator/schema.pl]]></execute></action></item>
+    <item label="Menu Config" icon=""><action name="Execute"><execute><![CDATA[geany ~/.config/obmenu-generator/config.pl]]></execute></action></item>
+  <separator/>
+    <item label="Generate a pipe menu" icon=""><action name="Execute"><execute><![CDATA[obmenu-generator -p]]></execute></action></item>
+    <item label="Generate a static menu" icon=""><action name="Execute"><execute><![CDATA[obmenu-generator -s -c]]></execute></action></item>
+    <item label="Generate a pipe menu with icons" icon=""><action name="Execute"><execute><![CDATA[obmenu-generator -p -i]]></execute></action></item>
+    <item label="Generate a static menu with icons" icon=""><action name="Execute"><execute><![CDATA[obmenu-generator -s -i -c]]></execute></action></item>
+  <separator/>
+    <item label="Refresh Icon Set" icon=""><action name="Execute"><execute><![CDATA[obmenu-generator -d]]></execute></action></item>
+  </menu>
+  <menu id="Openbox" icon="/usr/share/pixmaps/openbox.png" label="Openbox">
+    <item label="Reconfigure Openbox" icon="/usr/share/pixmaps/openbox.png"><action name="Execute"><execute><![CDATA[openbox --reconfigure]]></execute></action></item>
+    <item label="Openbox Autostart" icon=""><action name="Execute"><execute><![CDATA[geany ~/.config/openbox/autostart]]></execute></action></item>
+    <item label="Openbox RC" icon="/usr/share/icons/breeze-dark/mimetypes/64/text-xml.svg"><action name="Execute"><execute><![CDATA[geany ~/.config/openbox/rc.xml]]></execute></action></item>
+    <item label="Openbox Menu" icon="/usr/share/icons/breeze-dark/mimetypes/64/text-xml.svg"><action name="Execute"><execute><![CDATA[geany ~/.config/openbox/menu.xml]]></execute></action></item>
+  </menu>
+  </menu>
+  <separator/>
+    <item label="Lock" icon="/usr/share/icons/breeze-dark/actions/22/lock.svg"><action name="Execute"><execute><![CDATA[slock]]></execute></action></item>
+    <item label="Exit" icon=""><action name="Exit"/></item>
+  </menu>
 </openbox_menu>
