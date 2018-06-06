@@ -1,48 +1,51 @@
-## Conky settings
-update_interval 1
-total_run_times 0
-net_avg_samples 1
-cpu_avg_samples 1
+conky.config = {
+--# Conky settings
+	update_interval = 1,
+	total_run_times = 0,
+	net_avg_samples = 1,
+	cpu_avg_samples = 1,
 
-imlib_cache_size 0
-double_buffer yes
-no_buffers yes
-
-
-## Text settings
-use_xft yes
-xftfont Monospace:size=8:bold
-override_utf8_locale yes
-text_buffer_size 2048
-
-## Window specifications
-own_window_class Conky
-own_window yes
-own_window_type desktop
-own_window_transparent yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-#own_window_argb_visual yes
-#own_window_argb_value 80
-
-alignment tr
-gap_x 1
-gap_y 3
-minimum_size 910 250
-
-default_bar_size 60 8
+	imlib_cache_size = 0,
+	double_buffer = true,
+	no_buffers = true,
 
 
-## Graphics settings
-draw_shades no
+--# Text settings
+	use_xft = true,
+	font = 'Monospace:size=8:bold',
+	override_utf8_locale = true,
+	text_buffer_size = 2048,
 
-default_color efefef
-default_shade_color 1d1d1d
-color0 orange
-color1 cyan
-color2 white
+--# Window specifications
+	own_window_class = 'Conky',
+	own_window = true,
+	own_window_type = 'desktop',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+--own_window_argb_visual yes
+--own_window_argb_value 80
+
+	alignment = 'top_right',
+	gap_x = 1,
+	gap_y = 3,
+	minimum_width = 910, minimum_height = 250,
+
+	default_bar_width = 60, default_bar_height = 8,
 
 
-TEXT
+--# Graphics settings
+	draw_shades = false,
+
+	default_color = '#efefef',
+	default_shade_color = '#1d1d1d',
+	color0 = 'orange',
+	color1 = 'cyan',
+	color2 = 'white',
+
+
+};
+
+conky.text = [[
 ## System
 ${alignr}${color0}$nodename $sysname $kernel ($machine) ${color1}Uptime| ${color2}$uptime ${color1}Now| ${color2}${time %Y%m%d%H%M%S} ${color0}|| System
 ${alignr}||       
@@ -72,3 +75,4 @@ ${image ~/.config/conky/ConkyImages/BaseThin.png -p 115,76 -s 800x16}
 ${image ~/.config/conky/ConkyImages/BaseThin.png -p 0,102 -s 915x16}
 ${image ~/.config/conky/ConkyImages/BaseThin.png -p 115,128 -s 800x16}
 ${image ~/.config/conky/ConkyImages/BaseThin.png -p 115,154 -s 800x16}
+]];

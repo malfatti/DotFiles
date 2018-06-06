@@ -32,10 +32,10 @@ XF86AudioRaiseVolume
     bash $SCRIPTSPATH/Bash/Audio/ALSA/VolControl.sh {down,toggle} > /dev/null
 
 # In
-super + XF86AudioRaiseVolume
+shift + XF86AudioRaiseVolume
     amixer sset Capture 5%+ > /dev/null
 
-super + XF86AudioLowerVolume
+shift + XF86AudioLowerVolume
     amixer sset Capture 5%- > /dev/null
 
 shift + super + XF86AudioLowerVolume

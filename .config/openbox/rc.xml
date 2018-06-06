@@ -384,7 +384,7 @@
     </keybind>
     <keybind key="W-p">
       <action name="Execute">
-        <command>bash $SCRIPTSPATH/Bash/Video/DisplayToggle.sh</command>
+        <command>sh -c "bash $SCRIPTSPATH/Bash/Video/DisplayToggle.sh"</command>
       </action>
     </keybind>
 

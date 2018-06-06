@@ -10,6 +10,7 @@ cp -v --parents /etc/conf.d/keymaps /home/malfatti/Nebula/SysBkp/$Date >> /home/
 cp -v --parents /etc/conf.d/modules /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
 cp -v --parents /etc/conf.d/net /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
 cp -v --parents /etc/cups/cupsd.conf /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
+cp -v --parents /etc/fstab /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
 cp -v --parents /etc/hosts /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
 cp -v --parents /etc/locale.gen /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log
 cp -vR --parents /etc/modprobe.d/ /home/malfatti/Nebula/SysBkp/$Date >> /home/malfatti/Nebula/SysBkp/$Date-Log

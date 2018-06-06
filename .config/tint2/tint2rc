@@ -80,7 +80,7 @@ launcher_item_app = /usr/share/applications/geany.desktop
 launcher_item_app = /usr/share/applications/inkscape.desktop
 
 # Fonts
-task_font = sans 9
+task_font = sans 11
 task_font_color = #FFFFFF 68
 task_active_font_color = #FFFFFF 83
 task_urgent_font_color = #FFFFFF 83
@@ -97,7 +97,7 @@ systray_icon_asb = 70 0 0
 
 # Clock
 time1_format = %H:%M:%S
-time1_font = sans 8
+time1_font = sans 11
 time2_format = %A %d %B
 time2_font = sans 7
 clock_font_color = #FFFFFF 74

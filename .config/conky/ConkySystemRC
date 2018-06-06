@@ -1,58 +1,61 @@
-######################
-# - Conky settings - #
-######################
-update_interval 1
-total_run_times 0
-net_avg_samples 1
-cpu_avg_samples 1
+conky.config = {
+--#####################
+-- - Conky settings - #
+--#####################
+	update_interval = 1,
+	total_run_times = 0,
+	net_avg_samples = 1,
+	cpu_avg_samples = 1,
 
-imlib_cache_size 0
-double_buffer yes
-no_buffers yes
+	imlib_cache_size = 0,
+	double_buffer = true,
+	no_buffers = true,
 
-#####################
-# - Text settings - #
-#####################
-use_xft yes
-xftfont Sans:size=8
-override_utf8_locale yes
-text_buffer_size 2048
+--####################
+-- - Text settings - #
+--####################
+	use_xft = true,
+	font = 'Sans:size=8',
+	override_utf8_locale = true,
+	text_buffer_size = 2048,
 
-#############################
-# - Window specifications - #
-#############################
-own_window_class Conky
-own_window yes
-own_window_type override
-own_window_transparent yes
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-#own_window_argb_visual yes
-#own_window_argb_value 100
+--############################
+-- - Window specifications - #
+--############################
+	own_window_class = 'Conky',
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+--own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+--own_window_argb_visual yes
+--own_window_argb_value 100
 
-alignment br
-#gap_x 12
-#gap_y 35
-minimum_size 370 250
-
-
-default_bar_size 60 8
-
-#########################
-# - Graphics settings - #
-#########################
-draw_shades no
-
-default_color efefef
-default_shade_color 1d1d1d
-color0 ffffff
-color1 ffffff
-color2 ffffff
+	alignment = 'bottom_right',
+--gap_x 12
+--gap_y 35
+	minimum_width = 370, minimum_height = 250,
 
 
-#lua_load ~/.conky/conkybg.lua
-#lua_draw_hook_pre conky_draw_bg
+	default_bar_width = 60, default_bar_height = 8,
 
-TEXT
+--########################
+-- - Graphics settings - #
+--########################
+	draw_shades = false,
+
+	default_color = '#efefef',
+	default_shade_color = '#1d1d1d',
+	color0 = '#ffffff',
+	color1 = '#ffffff',
+	color2 = '#ffffff',
+
+
+--lua_load ~/.conky/conkybg.lua
+--lua_draw_hook_pre conky_draw_bg
+
+};
+
+conky.text = [[
 
 ## Sys info
 ${image ~/.config/conky/ConkyImages/Base.png -p 10,0 -s 359x86} ${voffset -20}
@@ -130,3 +133,4 @@ ${image ~/.config/conky/ConkyImages/Glass/Clock.png -p 32,458 -s 45x45}
 ${voffset 7}${font Droid Sans Mono :size=22}${alignc -20}${color2}${time %H:%M:%S}${font}${color}
 ${voffset 4}${font Droid Sans :size=10}${alignc -20}${color6}${time %A, %B %d}${font}${color}
 
+]];
