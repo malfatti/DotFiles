@@ -1,2 +1,1 @@
-# DotFiles
-Configuration files for my setups
+[Moved to Gitlab -> https://gitlab.com/malfatti/DotFiles]

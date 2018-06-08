@@ -1,9 +1,0 @@
-# /etc/hosts: Local Host Database
-
-# IPv4 and IPv6 localhost aliases
-127.0.0.1	MalfattiTux localhost
-::1		localhost
-
-# Manually blocked sites
-127.0.0.1 danasoft.com
-

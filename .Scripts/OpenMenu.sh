@@ -1,1 +1,0 @@
-xdotool key super+m
